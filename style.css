@@ -1,28 +1,42 @@
 body {
   margin: 0;
+  padding-top: 56px;
 }
 
 nav {
   position: fixed;
-  background-color: black
+  background-color: black;
+  color: white
 }
 
 a {
   font-style: inherit;
-  color: inherit;
+  /* color: inherit; */
+}
+
+a :active{
+  color: blueviolet;
 }
 
 header {
-  text-align: center;
+  /* text-align: center; */
   padding: 20% 0% 16% 0%;
+  /* position: absolute; */
+  /* background: rgba(255, 255, 255, 0.61); */
   background-image: url(img/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  box-shadow: inset 0px 0px 300px 200px rgba(0,0,0,0.7);
+
 }
 
 span {
-  font-size: 120%;
+  font-size: 130%;
+}
+
+.fab, .fas{
+  font-size: 350%;
 }
 
 section .row{
@@ -32,3 +46,18 @@ section .row{
 img {
   width: 100%;
 }
+
+#contact .fab, #contact .fas{
+  font-size: 200%
+}
+
+/* #aboutMe {
+  background: yellow;
+  margin-top: 50%;
+}
+#mi{
+margin-top: 10%;
+}
+#proyects{
+  margin-top: 50%;
+} */
