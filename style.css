@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding-top: 56px;
+  padding-top: 51px;
 }
 
 nav {
@@ -9,14 +9,18 @@ nav {
   color: white
 }
 
-a {
-  font-style: inherit;
-  /* color: inherit; */
+h1 {
+  font-size: 200%;
 }
 
-a :active{
+/* a {
+  font-style: inherit;
+  color: inherit;
+} */
+
+/* a :active{
   color: blueviolet;
-}
+} */
 
 header {
   /* text-align: center; */
@@ -31,7 +35,7 @@ header {
 
 }
 
-span {
+#home span {
   font-size: 130%;
 }
 
