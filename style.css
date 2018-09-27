@@ -1,38 +1,47 @@
 body {
   margin: 0;
   padding-top: 51px;
+  /* background-color: (248, 248, 248); */
 }
 
-nav {
-  position: fixed;
-  background-color: black;
+.bg-color {
+  background-color: rgb(29, 29, 29);
   color: white
 }
 
-h1 {
-  font-size: 200%;
+span {
+  font-weight: bold
 }
 
-/* a {
+/* h1 h4 {
+  font-size: 300%;
+} */
+
+a {
   font-style: inherit;
   color: inherit;
-} */
+}
 
 /* a :active{
   color: blueviolet;
 } */
 
 header {
+  text-shadow: black;
   /* text-align: center; */
-  padding: 20% 0% 16% 0%;
+  padding: 20% 0% 20% 0%;
   /* position: absolute; */
   /* background: rgba(255, 255, 255, 0.61); */
   background-image: url(img/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-  box-shadow: inset 0px 0px 300px 200px rgba(0,0,0,0.7);
+  box-shadow: inset 0px 0px 100px 900px rgba(0,0,0,0.7);
+  /* box-shadow: inset -56px 107px 0px 500px rgba(0,0,0,0.68); */
+}
 
+section {
+  padding: 50px 0% 50px 0%; 
 }
 
 #home span {
@@ -48,20 +57,65 @@ section .row{
 }
 
 img {
+  padding: 1%;
   width: 100%;
 }
 
-#contact .fab, #contact .fas{
-  font-size: 200%
+.acuarela {
+  background: url(img/acuarela.jpg);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  /* background-size: cover; */
 }
 
-/* #aboutMe {
-  background: yellow;
-  margin-top: 50%;
+.btn {
+  background-color: blueviolet;
+  color: white
 }
-#mi{
-margin-top: 10%;
+
+i {
+  color: blueviolet;
+
+  /* border-color: blueviolet; */
 }
-#proyects{
-  margin-top: 50%;
-} */
+
+#aboutMe div {
+ font-size: 150%;
+ text-align: justify;
+ padding: 5% 20% 5% 5%;
+ /* border-left: 3px solid rgb(152, 48, 248); */
+  /* margin-top: 50%; */
+}
+
+#contact i{
+  color: rgb(137, 54, 214);
+}
+
+.pad-border {
+  margin: 1%;
+  padding: 2%;
+  word-wrap: break-word;
+  /* background-color: rgba(0, 0, 0, 0.233); */
+}
+
+@media screen and (max-width: 425px) {
+  #aboutMe div {
+    font-size: 130%;
+    text-align: justify;
+    padding: 3.5%;
+    /* border-left: 3px solid rgb(152, 48, 248); */
+     /* margin-top: 50%; */
+   }
+}
+
+/* @media screen and (max-width: 800px) {
+  .acuarela {
+    background: url(img/acuarela.png);
+    background-repeat: no-repeat;
+    /* background-rotate: 50%; */
+
+
+    /* background-position: 100%; */
+    /* background-size: cover; */
+  /* }
+}  */
