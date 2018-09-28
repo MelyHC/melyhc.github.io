@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Domine|Open+Sans:400,400i,600,600i,700');
+
 body {
   margin: 0;
   padding-top: 51px;
-  /* background-color: (248, 248, 248); */
+  color: black;
+  font-family: 'Open sans', serif;
+}
+
+h1, h2 {
+  font-family: 'domine', serif; 
+}
+
+h1 {
+  font-size: 5em;
 }
 
 .bg-color {
@@ -10,28 +21,22 @@ body {
 }
 
 span {
-  font-weight: bold
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
-/* h1 h4 {
-  font-size: 300%;
-} */
+.mail {
+  font-size: 1.1em;
+}
 
 a {
   font-style: inherit;
   color: inherit;
 }
 
-/* a :active{
-  color: blueviolet;
-} */
-
 header {
-  text-shadow: black;
-  /* text-align: center; */
-  padding: 20% 0% 20% 0%;
-  /* position: absolute; */
-  /* background: rgba(255, 255, 255, 0.61); */
+  /* text-shadow: black; */
+  padding: 19% 0% 19% 0%;
   background-image: url(img/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,8 +49,15 @@ section {
   padding: 50px 0% 50px 0%; 
 }
 
+hr {
+  width: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 4px solid blueviolet;
+}
+
 #home span {
-  font-size: 130%;
+  font-size: 1.8em;
 }
 
 .fab, .fas{
@@ -53,7 +65,7 @@ section {
 }
 
 section .row{
-  margin: 0;
+  margin: 30px 0px 50px 0px;
 }
 
 img {
@@ -65,7 +77,6 @@ img {
   background: url(img/acuarela.jpg);
   background-repeat: no-repeat;
   background-position: 100%;
-  /* background-size: cover; */
 }
 
 .btn {
@@ -75,16 +86,12 @@ img {
 
 i {
   color: blueviolet;
-
-  /* border-color: blueviolet; */
 }
 
 #aboutMe div {
- font-size: 150%;
- text-align: justify;
- padding: 5% 20% 5% 5%;
- /* border-left: 3px solid rgb(152, 48, 248); */
-  /* margin-top: 50%; */
+  font-size: 1.3em;
+  text-align: justify;
+  padding: 2% 20% 5% 20%;
 }
 
 #contact i{
@@ -92,17 +99,29 @@ i {
 }
 
 .pad-border {
-  margin: 1%;
-  padding: 2%;
+  margin: 1.5%;
+  padding: 3%;
   word-wrap: break-word;
-  /* background-color: rgba(0, 0, 0, 0.233); */
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 516px) {
+
+  h1 {
+    font-size: 3.5em;
+  }
+
+  .acuarela {
+    background: none;
+    /* background-repeat: no-repeat;
+    background-position: 100%; */
+  }
+
+  #home span {
+    font-size: 1.4em;
+  }
+
   #aboutMe div {
-    font-size: 130%;
-    text-align: justify;
-    padding: 3.5%;
+    padding: 5%;
     /* border-left: 3px solid rgb(152, 48, 248); */
      /* margin-top: 50%; */
    }
