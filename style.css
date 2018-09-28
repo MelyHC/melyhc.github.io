@@ -98,6 +98,12 @@ i {
   color: rgb(137, 54, 214);
 }
 
+#proyects i {
+  color: initial;
+  font-size: 130%;
+  margin-right: 5px; 
+}
+
 .pad-border {
   margin: 1.5%;
   padding: 3%;
