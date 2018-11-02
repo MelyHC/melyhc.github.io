@@ -1,46 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mely Hidalgo-portafolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body class="text-center">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Barra de navegación">
+        <span class="navbar-toggler-icon"></span>
           </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#home">Inicio</a>
+          <a class="nav-item nav-link" href="#aboutMe">Sobre mí</a>
+          <a class="nav-item nav-link" href="#proyects">Proyectos</a>
+          <a class="nav-item nav-link" href="#skills">Habilidades</a>
+          <a class="nav-item nav-link" href="#contact">Contacto</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#aboutMe">Sobre mí</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#proyects">Proyectos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">Habilidades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contacto</a>
-            </li>
-          </ul>
         </div>
-      </div>
     </nav>
-    <header id="home" class="">
+    <header id="home" class="d-flex">
       <h1>Mely Hidalgo</h1>
       <span>Front-end Developer</span>
     </header>
@@ -58,32 +43,33 @@
       <h2>Mis proyectos</h2>
       <hr />
       <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="./img/dashboard.PNG" alt="dataDasboard" class="image-fluid">
-            <div class="caption">
-              <span>Labo DashBoard</span>
-              <p>Es una página donde las Training Managers de Laboratoria ven el progreso de las estudiantes (ejercicios, quizzes y lecturas).</p>
-              <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-datadashboard/src/" target="_blank" class="btn"><i class="fas fa-eye"></i>Demo</a> <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-datadashboard" target="_target" class="btn"><i class="fab fa-github"></i>Código</a>
+        <div class="col col-md-4">
+          <div class="card mb-3">
+            <img src="./img/dashboard.PNG" alt="dataDasboard">
+            <div class="card-body">
+              <span class="card-title">Labo DashBoard</span>
+              <p class="card-text">Es una página donde las Training Managers de Laboratoria ven el progreso de las estudiantes (ejercicios, quizzes y lecturas).</p>
+              <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-datadashboard/src/" target="_blank" class="btn"><i class="fas fa-eye"></i>Demo</a> 
+              <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-datadashboard" target="_target" class="btn"><i class="fab fa-github"></i>Código</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
+        <div class="col col-md-4">
+          <div class="card mb-3">
             <img src="./img/markdown2.PNG" alt="md-links">
-            <div class="caption">
-              <span>Markdown Links</span>
-              <p>Es una librería que analiza archivos markdown y verifica si los links que contiene estan rotos o son validos, además de mostrar una sencilla estadítica de cuantos hay.</p>
+            <div class="card-body">
+              <span class="card-title">Markdown Links</span>
+              <p class="card-text">Es una librería que analiza archivos markdown y verifica si los links que contiene son validos o no, además de mostrar una sencilla estadística de cuantos hay.</p>
               <a href="https://www.npmjs.com/package/melyhc-md-links" target="_blank" class="btn"><i class="fas fa-eye"></i>Demo</a> <a href="https://github.com/MelyHC/lim20181-Track-FE-markdown-list" target="_blank" class="btn"><i class="fab fa-github"></i>Código</a>
             </div>           
           </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
+        <div class="col col-md-4">
+          <div class="card">
             <img src="/img/redsocial.PNG" alt="It's Food">
-            <div class="caption">
-              <span>It's Food</span>
-              <p>Es una red social enfocada en la alimentación saludable, donde podrás encontrar diversa información de como mejorar tu salud.</p>
+            <div class="card-body ">
+              <span class="card-title">It's Food</span>
+              <p class="card-text">Es una red social enfocada en la alimentación saludable, donde podrás encontrar diversa información de como mejorar tu salud.</p>
               <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/" target="_blank" class="btn"><i class="fas fa-eye"></i>Demo</a> <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-socialnetwork" class="btn"><i class="fab fa-github"></i>Código</a>
             </div>
           </div>
@@ -93,44 +79,52 @@
     <section id="skills" class="">
       <h2>Habilidades</h2>
       <hr />
-      <div>  
+      <div class="mt-4">  
         <h3>Tech</h3>
         <div class="row">
-          <div class="col-md-3 col-xs-6">
-            <div class=" pt-2 pb-2 m-3 pad-border">
-            <i class="fab fa-html5"></i>
-            <br><span>HTML</span>
+          <div class="col col-md-3">
+            <div class="pt-2 pb-2 m-3 pad-border">
+              <i class="fab fa-html5"></i>
+              <br><span>HTML</span>
             </div>
+          </div>
+          <div class="col col-md-3">  
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fab fa-css3-alt"></i>
               <br><span>CSS</span>
             </div>
           </div>
-          <div class="col-md-3 col-xs-6">
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fab fa-js"></i>
               <br><span>JavaScript</span>
             </div>
+          </div>
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fab fa-react"></i>
               <br><span>React.js</span>
             </div>
           </div>
-          <div class="col-md-3 col-xs-6">
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fab fa-node-js"></i>
               <br><span>Node.js</span>
             </div>
+          </div>
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fas fa-database"></i>
               <br><span>FireBase</span>
             </div>
           </div>
-          <div class="col-md-3 col-xs-6">
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fas fa-code-branch"></i>
               <br><span>Git</span>
             </div>
+          </div>
+          <div class="col col-md-3">
             <div class="pt-2 pb-2 m-3 pad-border">
               <i class="fab fa-github"></i>
               <br><span>Github</span>
@@ -139,23 +133,17 @@
         </div>
         <h3>Blandas</h3>
         <div class="row">
-          <div class="col-md-4 col-xs-5">
-            <div class="pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-dumbbell"></i>
-              <br><span>Resiliencia</span>
-            </div>
+          <div class="col pt-2 pb-2 m-3 pad-border">
+            <i class="fas fa-dumbbell"></i>
+            <br><span>Resiliencia</span>
           </div>
-          <div class="col-md-4 col-xs-5">
-            <div class="pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-book-reader"></i>
-              <br><span>Autoaprendizaje</span>
-            </div>
+          <div class="col pt-2 pb-2 m-3 pad-border">
+            <i class="fas fa-book-reader"></i>
+            <br><span>Autoaprendizaje</span>
           </div>
-          <div class="col-md-4 col-xs-5">
-            <div class="pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-hands-helping"></i>
-              <br><span>Trabajo en equipo</span>
-            </div>
+          <div class="col pt-2 pb-2 m-3 pad-border">
+            <i class="fas fa-hands-helping"></i>
+            <br><span>Trabajo en equipo</span>
           </div>
         </div>
       </div>
@@ -163,29 +151,31 @@
     <section id="contact" class="bg-color">
       <h2>Contáctame</h2>
       <hr />
-      <div class="row content-center">
-        <div class="col-sm-2 col-xs-5 pad-border">
-          <a href="https://www.linkedin.com/in/melyhidalgo/" target="_blank">
+      <div class="p-center">
+        <div class="m-3">
+          <a class="nav-link" href="https://www.linkedin.com/in/melyhidalgo/" target="_blank">
             <i class="fab fa-linkedin"></i>
-            <br><span>LinkedIn</span>
+            <span>LinkedIn</span>
           </a>
         </div>
-        <div class="col-sm-2 col-xs-5 pad-border">
+        <div class="m-3">
           <i class="fas fa-phone"></i>
-          <br><span>929-940-441</span>
+          <span>929-940-441</span>
         </div>
-        <div class="col-sm-2 col-xs-5 pad-border">
+        <div class="m-3">
           <i class="fas fa-file"></i>
-          <br><span>Ver <b>CV</b></span>
+          <span>Ver CV</span>
         </div>
-        <div class="col-sm-2 col-xs-5 pad-border">
+        <div class="m-3">
+          <a href="mailto:mely.hidalgo.crespo@gmail.com" class="">
           <i class="fas fa-envelope"></i>
-          <br><a href="mailto:mely.hidalgo.crespo@gmail.com"><span class="mail">mely.hidalgo.crespo@gmail.com</span></a>
+            <span class="mail">mely.hidalgo.crespo@gmail.com</span>
+          </a>
         </div>
-        <div class="col-sm-2 col-xs-5 pad-border">
+        <div class="m-3">
           <a href="https://github.com/MelyHC" target="_blank">
             <i class="fab fa-github"></i>
-            <br><span>Github</span>
+            <span>Github</span>
           </a>
         </div>
       </div>

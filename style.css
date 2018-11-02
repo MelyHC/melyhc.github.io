@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  padding-top: 51px;
+  padding-top: 56px;
   color: black;
   font-family: 'Open sans', serif;
 }
@@ -12,12 +12,16 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 3.5em;
 }
 
 .bg-color {
   background-color: rgb(29, 29, 29);
   color: white
+}
+
+.card {
+  color: initial;
 }
 
 span {
@@ -35,8 +39,11 @@ a {
 }
 
 header {
-  /* text-shadow: black; */
-  padding: 19% 0% 19% 0%;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  background-attachment: fixed;
+  height: 92vh;
   background-image: url(img/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,7 +64,7 @@ hr {
 }
 
 #home span {
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
 
 .fab, .fas{
@@ -65,23 +72,22 @@ hr {
 }
 
 section .row{
-  margin: 30px 0px 50px 0px;
+  margin: 1.2rem;
 }
 
 img {
-  padding: 1%;
-  width: 100%;
-}
-
-.acuarela {
-  background: url(img/acuarela.jpg);
-  background-repeat: no-repeat;
-  background-position: 100%;
+  margin: 0.6rem;
+  height: 30vh;
 }
 
 .btn {
   background-color: blueviolet;
   color: white
+}
+
+.btn:hover {
+  background-color: rgb(118, 36, 194);
+  color: white;
 }
 
 i {
@@ -91,46 +97,52 @@ i {
 #aboutMe div {
   font-size: 1.3em;
   text-align: justify;
-  padding: 2% 20% 5% 20%;
+  padding: 5%;
 }
 
 #contact i{
+  font-size: 180%;
   color: rgb(137, 54, 214);
 }
 
 #proyects i {
-  color: initial;
+  color: white;
   font-size: 130%;
   margin-right: 5px; 
 }
 
-.pad-border {
-  margin: 1.5%;
-  padding: 3%;
-  word-wrap: break-word;
+.card-body {
+  padding: 0 0.5rem 1rem;
 }
 
-@media screen and (max-width: 516px) {
+.p-center {
+  text-align: left;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
 
   h1 {
-    font-size: 3.5em;
+    font-size: 5em;
   }
 
   .acuarela {
-    background: none;
-    /* background-repeat: no-repeat;
-    background-position: 100%; */
+    background: url(img/acuarela.jpg);
+    background-repeat: no-repeat;
+    background-position: 100%;
   }
 
   #home span {
-    font-size: 1.4em;
+    font-size: 1.8em;
   }
 
   #aboutMe div {
-    padding: 5%;
-    /* border-left: 3px solid rgb(152, 48, 248); */
-     /* margin-top: 50%; */
-   }
+    padding: 2% 20% 5% 20%;
+  }
+
+  img {
+    height: 35vh;
+  }
 }
 
 /* @media screen and (max-width: 800px) {
