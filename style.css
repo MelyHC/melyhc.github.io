@@ -30,7 +30,7 @@ span {
 }
 
 .mail {
-  font-size: 1.1em;
+  font-size: 0.8em;
 }
 
 a {
@@ -76,8 +76,8 @@ section .row{
 }
 
 img {
-  margin: 0.6rem;
-  height: 30vh;
+  padding: 0.6rem;
+  /* height: 30vh; */
 }
 
 .btn {
@@ -140,9 +140,9 @@ i {
     padding: 2% 20% 5% 20%;
   }
 
-  img {
+  /* img {
     height: 35vh;
-  }
+  } */
 }
 
 /* @media screen and (max-width: 800px) {
