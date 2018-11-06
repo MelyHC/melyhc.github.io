@@ -5,6 +5,7 @@ body {
   padding-top: 56px;
   color: black;
   font-family: 'Open sans', serif;
+  /* position: relative; */
 }
 
 h1, h2 {
@@ -54,6 +55,7 @@ header {
 
 section {
   padding: 50px 0% 50px 0%; 
+  /* margin: 50px 0% 50px 0; */
 }
 
 hr {
@@ -118,6 +120,12 @@ i {
 .p-center {
   text-align: left;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) {
+  .mail {
+    font-size: initial;
+  }
 }
 
 @media screen and (min-width: 768px) {
