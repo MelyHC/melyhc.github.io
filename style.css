@@ -138,6 +138,7 @@ i {
     background: url(img/acuarela.jpg);
     background-repeat: no-repeat;
     background-position: 100%;
+    background-size: contain;
   }
 
   #home span {
