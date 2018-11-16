@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Domine|Open+Sans:400,400i,600,600i,700');
 
 body {
-  margin: 0;
-  padding-top: 56px;
   color: black;
   font-family: 'Open sans', serif;
-  /* position: relative; */
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'domine', serif; 
 }
 
@@ -18,11 +15,6 @@ h1 {
 
 .bg-color {
   background-color: rgb(29, 29, 29);
-  color: white
-}
-
-.card {
-  color: initial;
 }
 
 span {
@@ -34,17 +26,14 @@ span {
   font-size: 0.8em;
 }
 
-a {
-  font-style: inherit;
+a, a:hover {
   color: inherit;
+  text-decoration: inherit;
 }
 
 header {
-  justify-content: center;
-  align-self: center;
-  flex-direction: column;
   background-attachment: fixed;
-  height: 92vh;
+  height: 100vh;
   background-image: url(img/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,15 +42,12 @@ header {
   /* box-shadow: inset -56px 107px 0px 500px rgba(0,0,0,0.68); */
 }
 
-section {
-  padding: 50px 0% 50px 0%; 
-  /* margin: 50px 0% 50px 0; */
+.acuarela {
+  background-color: #f5f5f5;
 }
 
 hr {
   width: 50px;
-  margin-top: 0px;
-  margin-bottom: 0px;
   border-top: 4px solid blueviolet;
 }
 
@@ -73,23 +59,13 @@ hr {
   font-size: 350%;
 }
 
-section .row{
-  margin: 1.2rem;
-}
-
-img {
-  padding: 0.6rem;
-  /* height: 30vh; */
-}
-
 .btn {
   background-color: blueviolet;
-  color: white
+  width: 115px;
 }
 
 .btn:hover {
   background-color: rgb(118, 36, 194);
-  color: white;
 }
 
 i {
@@ -97,9 +73,8 @@ i {
 }
 
 #aboutMe div {
-  font-size: 1.3em;
-  text-align: justify;
-  padding: 5%;
+  font-size: 1.25em;
+  padding: 0 1.5rem;
 }
 
 #contact i{
@@ -110,16 +85,10 @@ i {
 #proyects i {
   color: white;
   font-size: 130%;
-  margin-right: 5px; 
 }
 
 .card-body {
   padding: 0 0.5rem 1rem;
-}
-
-.p-center {
-  text-align: left;
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 375px) {
@@ -135,7 +104,7 @@ i {
   }
 
   .acuarela {
-    background: url(img/acuarela.jpg);
+    background-image: url(img/acuarela.jpg);
     background-repeat: no-repeat;
     background-position: 100%;
     background-size: contain;
@@ -146,12 +115,8 @@ i {
   }
 
   #aboutMe div {
-    padding: 2% 20% 5% 20%;
+    padding: 0 15%;
   }
-
-  /* img {
-    height: 35vh;
-  } */
 }
 
 /* @media screen and (max-width: 800px) {
