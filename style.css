@@ -73,7 +73,8 @@ i {
 }
 
 #aboutMe div {
-  font-size: 1.25em;
+  text-align: justify;
+  font-size: 1.14em;
   padding: 0 1.5rem;
 }
 
@@ -115,6 +116,7 @@ i {
   }
 
   #aboutMe div {
+    font-size: 1.25em;
     padding: 0 15%;
   }
 }
