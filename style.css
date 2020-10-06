@@ -1,26 +1,74 @@
 @import url('https://fonts.googleapis.com/css?family=Domine|Open+Sans:400,400i,600,600i,700');
-
-body {
-  color: black;
+* {
   font-family: 'Open sans', serif;
 }
 
-h1, h2, h3 {
-  font-family: 'domine', serif; 
+.home {
+  background-attachment: fixed;
+  height: 100vh;
+  background-image: url(img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px 0px 100px 900px rgba(0, 0, 0, 0.7);
 }
 
-h1 {
+.home span {
+  font-size: 1.4em;
+}
+
+.text-domine {
+  font-family: 'domine', serif;
+}
+
+.title {
   font-size: 3.5em;
+}
+
+.description {
+  font-size: 1.14em;
+  padding: 0 1.5rem;
 }
 
 .bg-color {
   background-color: rgb(29, 29, 29);
 }
 
+.title-line {
+  width: 50px;
+  border-top: 4px solid blueviolet;
+}
+
+.icon-lg {
+  font-size: 3.5em;
+}
+
+.icon-md {
+  font-size: 2rem;
+}
+
+.btn-purple {
+  background-color: blueviolet;
+  width: 115px;
+}
+
+.btn-purple:hover {
+  opacity: 1;
+  background-color: rgb(118, 36, 194);
+}
+
+i {
+  color: blueviolet;
+}
+
 span {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
+
+/* #proyects i {
+  color: white;
+  font-size: 130%;
+} */
 
 .mail {
   font-size: 0.8em;
@@ -31,91 +79,34 @@ a, a:hover {
   text-decoration: inherit;
 }
 
-header {
-  background-attachment: fixed;
-  height: 100vh;
-  background-image: url(img/fondo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  box-shadow: inset 0px 0px 100px 900px rgba(0,0,0,0.7);
-  /* box-shadow: inset -56px 107px 0px 500px rgba(0,0,0,0.68); */
-}
-
-.acuarela {
-  background-color: #f5f5f5;
-}
-
-hr {
-  width: 50px;
-  border-top: 4px solid blueviolet;
-}
-
-#home span {
-  font-size: 1.4em;
-}
-
-.fab, .fas{
-  font-size: 350%;
-}
-
-.btn {
-  background-color: blueviolet;
-  width: 115px;
-}
-
-.btn:hover {
-  background-color: rgb(118, 36, 194);
-}
-
-i {
-  color: blueviolet;
-}
-
-#aboutMe div {
-  text-align: justify;
-  font-size: 1.14em;
-  padding: 0 1.5rem;
-}
-
-#contact i{
-  font-size: 180%;
-  color: rgb(137, 54, 214);
-}
-
-#proyects i {
-  color: white;
-  font-size: 130%;
-}
-
-.card-body {
-  padding: 0 0.5rem 1rem;
-}
-
 @media screen and (min-width: 375px) {
   .mail {
     font-size: initial;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
+  .nav-link.active::after {
+    display: block;
+    content: "";
+    border-bottom: 2px solid blueviolet;
+  }
+}
 
-  h1 {
+@media screen and (min-width: 768px) {
+  .title {
     font-size: 5em;
   }
-
-  .acuarela {
-    background-image: url(img/acuarela.jpg);
+  .decoration {
+    background-image: url(img/acuarela9.png);
     background-repeat: no-repeat;
-    background-position: 100%;
-    background-size: contain;
+    background-position: 50%;
+    background-size: cover;
   }
-
-  #home span {
+  .home span {
     font-size: 1.8em;
   }
-
-  #aboutMe div {
+  .description {
     font-size: 1.25em;
     padding: 0 15%;
   }
@@ -127,8 +118,9 @@ i {
     background-repeat: no-repeat;
     /* background-rotate: 50%; */
 
+/* background-position: 100%; */
 
-    /* background-position: 100%; */
-    /* background-size: cover; */
-  /* }
+/* background-size: cover; */
+
+/* }
 }  */

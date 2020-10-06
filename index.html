@@ -3,92 +3,103 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mely Hidalgo-portafolio</title>
+    <title>Mely Hidalgo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/db9438e759.js" crossorigin="anonymous"></script>
+    <!-- Recordar cambiar el codigo de fontAwesome -->
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body class="" data-spy="scroll" data-target=".navbar">
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+  <body class="" data-spy="scroll" data-target=".navbar" data-offset="1">
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
       <a class="navbar-brand" href=""></a>
-      <button class="navbar-toggler" id="menu" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Barra de navegación">
+      <button class="navbar-toggler" id="menu" type="button" data-toggle="collapse" data-target="#navbar-hide" aria-controls="navbar-hide" aria-expanded="false" aria-label="Barra de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#home">Inicio</a>
-          <a class="nav-item nav-link" href="#aboutMe">Sobre mí</a>
+      <div class="collapse navbar-collapse" id="navbar-hide">
+        <div class="navbar-nav justify-content-around w-100">
+          <a class="nav-item nav-link active" href="#home">Inicio</a>
+          <a class="nav-item nav-link" href="#about-me">Sobre mí</a>
           <a class="nav-item nav-link" href="#proyects">Proyectos</a>
           <a class="nav-item nav-link" href="#skills">Habilidades</a>
           <a class="nav-item nav-link" href="#contact">Contacto</a>
         </div>
       </div>
     </nav>
-    <header id="home" class="d-flex text-center align-selt-center flex-column justify-content-center">
-      <h1>Mely Hidalgo</h1>
+    <section id="home" class="home d-flex text-center align-items-center flex-column justify-content-center text-white">
+      <h1 class="text-domine title">Mely Hidalgo</h1>
       <span>Front-end Developer</span>
-    </header>
-    <section id="aboutMe" class="acuarela text-center pt-5 pb-4">
-      <h2 class="mt-4">Sobre mí</h2>
-      <hr class="mt-0 mb-0" />
-      <div class="container mt-4 pb-5">
-        Geek apasionada por los videojuegos. Me encanta aprender y descubrir diferentes tecnologías. Mi primer acercamiento con el
+    </section>
+    <section id="about-me" class="decoration text-center pt-5 pb-4">
+      <h2 class="mt-4 text-domine">Sobre mí</h2>
+      <hr class="mt-0 mb-0 title-line" />
+      <div class="container mt-4 pb-5 text-justify">
+        Geek apasionada por los videojuegos. Me encanta aprender y descubrir diferentes tecnologías. Mi primer
+        acercamiento con el
         mundo tech fue a los tres años, cuando descubrí las consolas y los juegos de computadora. Hoy en día soy Front-end
         Developer y aspiro a ser full-stack developer para desarrollar nuevos e innovadores productos que ayuden a mejorar
         la calidad de vida de las personas.
-        <br> En mi tiempo libre, disfruto escuchar música, cantar, ver películas (menos de terror y de humor negro), además jugar videojuegos, hacer origami y armar cubos de Rubik.
+        <br /> En mi tiempo libre, disfruto escuchar música, cantar, ver películas,
+        además jugar videojuegos, hacer origami y armar cubos de Rubik.
       </div>
     </section>
     <section id="proyects" class="bg-color text-center pt-5">
-      <h2 class="text-white mt-4">Mis proyectos</h2>
-      <hr class="mt-0 mb-0" />
+      <h2 class="text-white mt-4 text-domine">Mis proyectos</h2>
+      <hr class="mt-0 mb-0 title-line" />
       <div class="container">
-        <div class="row mr-2 ml-2 mt-4 pb-5">
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-3">
-              <img src="./img/dashboard.PNG" class="card-img p-1" alt="dataDasboard">
+        <div class="row row-cols-1 row-cols-md-3 mr-2 ml-2 mt-4 pb-5">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card mb-3 h-100">
+              <img src="./img/dashboard.PNG" class="card-img p-1" alt="dataDasboard" />
               <div class="card-body">
                 <span class="card-title">Labo DashBoard</span>
                 <p class="card-text ">
-                  Es una página donde las Training Managers de Laboratoria pueden conocer el progreso de las estudiantes (ejercicios, quizzes
+                  Es una página donde las Training Managers de Laboratoria pueden conocer el progreso de las estudiantes
+                  (ejercicios, quizzes
                   y lecturas).
                 </p>
-                <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-datadashboard/src/" target="_blank" class="btn text-white m-1">
+                <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-datadashboard/src/" target="_blank"
+                  class="btn text-white m-1">
                   <i class="fas fa-eye mr-2"></i>Demo</a>
-                <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-datadashboard" target="_target" class="btn text-white m-1">
+                <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-datadashboard" target="_target"
+                  class="btn text-white m-1">
                   <i class="fab fa-github mr-2"></i>Código</a>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-3">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card mb-3 h-100">
               <img src="./img/markdown2.PNG" class="card-img p-1" alt="md-links">
               <div class="card-body">
                 <span class="card-title">Markdown Links</span>
                 <p class="card-text">
-                  Es una librería que analiza archivos markdown y verifica si los links que contiene son validos o no, además mostrará una
+                  Es una librería que analiza archivos markdown y verifica si los links que contiene son validos o no,
+                  además mostrará una
                   estadística.
                 </p>
-                <a href="https://www.npmjs.com/package/melyhc-md-links" target="_blank" class="btn text-white m-1">
+                <a href="https://www.npmjs.com/package/melyhc-md-links" target="_blank"
+                  class="btn btn-purple text-white m-1">
                   <i class="fas fa-eye mr-2"></i>Demo</a>
-                <a href="https://github.com/MelyHC/lim20181-Track-FE-markdown-list" target="_blank" class="btn text-white m-1">
+                <a href="https://github.com/MelyHC/lim20181-Track-FE-markdown-list" target="_blank"
+                  class="btn btn-purple text-white m-1">
                   <i class="fab fa-github mr-2"></i>Código</a>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card mb-3 h-100">
               <img src="/img/redsocial.PNG" class="card-img p-1" alt="It's Food">
               <div class="card-body ">
                 <span class="card-title">It's Food</span>
                 <p class="card-text pr-3 pl-3">
-                  Es una red social enfocada en la alimentación saludable, donde podrás encontrar diversa información de como mejorar tu salud.
+                  Es una red social enfocada en la alimentación saludable, donde podrás encontrar diversa información de
+                  como mejorar tu salud.
                 </p>
-                <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/" target="_blank" class="btn text-white m-1">
+                <a href="https://melyhc.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/" target="_blank"
+                  class="btn text-white m-1">
                   <i class="fas fa-eye mr-2"></i>Demo</a>
-                <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-socialnetwork" target="_blank" class="btn text-white m-1">
+                <a href="https://github.com/MelyHC/lim-2018-05-bc-core-pm-socialnetwork" target="_blank"
+                  class="btn text-white m-1">
                   <i class="fab fa-github mr-2"></i>Código</a>
               </div>
             </div>
@@ -97,137 +108,45 @@
       </div>
     </section>
     <section id="skills" class="text-center pt-5 mb-5">
-      <h2 class="mt-4">Habilidades</h2>
-      <hr class="mt-0 mb-0" />
+      <h2 class="mt-4 text-domine">Habilidades</h2>
+      <hr class="mt-0 mb-0 title-line" />
       <div class="mt-4">
-        <div class="container">
-          <h3>Tech</h3>
-          <div class="row m-2">
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-html5"></i>
-                <br>
-                <span>HTML</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-css3-alt"></i>
-                <br>
-                <span>CSS</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fas fa-bold"></i>
-                <br>
-                <span>Bootstrap</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-js"></i>
-                <br>
-                <span>JavaScript</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-react"></i>
-                <br>
-                <span>React.js</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-node-js"></i>
-                <br>
-                <span>Node.js</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-npm"></i>
-                <br>
-                <span>npm</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fas fa-database"></i>
-                <br>
-                <span>FireBase</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fas fa-code-branch"></i>
-                <br>
-                <span>Git</span>
-              </div>
-            </div>
-            <div class="col col-md-3">
-              <div class="pt-2 pb-2 m-3 pad-border">
-                <i class="fab fa-github"></i>
-                <br>
-                <span>Github</span>
-              </div>
-            </div>
-          </div>
-          <h3>Blandas</h3>
-          <div class="row m-2">
-            <div class="col pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-dumbbell"></i>
-              <br>
-              <span>Resiliencia</span>
-            </div>
-            <div class="col pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-book-reader"></i>
-              <br>
-              <span>Autoaprendizaje</span>
-            </div>
-            <div class="col pt-2 pb-2 m-3 pad-border">
-              <i class="fas fa-hands-helping"></i>
-              <br>
-              <span>Trabajo en equipo</span>
-            </div>
-          </div>
-        </div>
+        <div class="container" id="skill-container"></div>
       </div>
     </section>
     <section id="contact" class="bg-color text-center text-white pt-5">
-      <h2 class="mt-1">Contáctame</h2>
-      <hr class="mt-0 mb-0" />
+      <h2 class="mt-1 text-domine">Contáctame</h2>
+      <hr class="mt-0 mb-0 title-line" />
       <div class="container d-flex flex-column align-items-center mt-2">
         <div class="mb-5">
           <div class="p-3 p-2">
             <a class="media" href="https://www.linkedin.com/in/melyhidalgo/" target="_blank">
-              <i class="fab fa-linkedin mr-2 ml-3"></i>
-              <span>LinkedIn</span>
+              <i class="fab fa-linkedin mr-2 ml-3 icon-md"></i>
+              <span>/melyhidalgo</span>
             </a>
           </div>
           <div class="p-3">
             <a href="tel:929940441" class="media">
-              <i class="fas fa-phone mr-2 ml-3"></i>
-              <span>929-940-441</span>
+              <i class="fas fa-mobile-alt mr-2 ml-3 icon-md"></i>
+              <span>929 940 441</span>
             </a>
           </div>
           <div class="p-3">
             <a class="media" href="https://drive.google.com/open?id=1Du7QgsP_9FMmlA17LnAB0veaYaPJ4Rjo" target="_blank">
-              <i class="fas fa-file mr-2 ml-3"></i>
+              <i class="fas fa-file mr-2 ml-3 icon-md"></i>
               <span>Ver CV</span>
             </a>
           </div>
           <div class="p-3">
-            <a href="mailto:mely.hidalgo.crespo@gmail.com" class="media align-items-center">
-              <i class="fas fa-envelope mr-2 ml-3"></i>
+            <a href="mailto:mely.hidalgo.crespo@gmail.com" class="media">
+              <i class="fas fa-envelope mr-2 ml-3 icon-md"></i>
               <span class="mail">mely.hidalgo.crespo@gmail.com</span>
             </a>
           </div>
           <div class="p-3">
             <a class="media" href="https://github.com/MelyHC" target="_blank">
-              <i class="fab fa-github mr-2 ml-3"></i>
-              <span>Github</span>
+              <i class="fab fa-github mr-2 ml-3 icon-md"></i>
+              <span>/MelyHC</span>
             </a>
           </div>
         </div>
@@ -236,6 +155,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="data/proyects.js"></script>
+    <script src="data/skills.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
