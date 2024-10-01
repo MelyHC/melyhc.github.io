@@ -1,3 +1,7 @@
+import { aboutMe, proyects, } from master;
+console.log(proyects)
+// import { proyects } from master.proyects.route;
+
 const menu = document.querySelector('#menu');
 const contContact = document.querySelector('#contact-container');
 const contProyects = document.querySelector('#proyects-container');
@@ -114,6 +118,7 @@ const printSkills = (arrSkills) => {
   })
   return templateSkills.replace(/,/gi, '');
 };
+console.log(master.proyects.route)
 
 contProyects.innerHTML = printProyects(proyects);
 contSkills.innerHTML = printSkills(skills);
