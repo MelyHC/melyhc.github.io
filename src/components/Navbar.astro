@@ -1,0 +1,42 @@
+---
+// interface Props {
+//   title: string;
+//   body: string;
+//   href: string;
+// }
+
+// const { href, title, body } = Astro.props;
+---
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2 w-100" role="navigation">
+  <!-- <div class="fixed-bottom "> -->
+    <a class="navbar-brand" href="#home"></a>
+    <button
+      class="navbar-toggler"
+      id="menu"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbar-hide"
+      aria-controls="navbar-hide"
+      aria-expanded="true"
+      aria-label="Barra de navegación"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-hide">
+      <div class="navbar-nav justify-content-around w-100">
+        <a class="nav-item nav-link scroll-link" href="#home">Inicio</a>
+        <a class="nav-item nav-link scroll-link" href="#about-me">Sobre mí</a>
+        <a class="nav-item nav-link scroll-link" href="#proyects">Proyectos</a>
+        <a class="nav-item nav-link scroll-link" href="#skills">Habilidades</a>
+        <a class="nav-item nav-link scroll-link" href="#contact">Contacto</a>
+      </div>
+    <!-- </div> -->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+  }
+</style>
