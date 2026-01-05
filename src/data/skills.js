@@ -4,43 +4,43 @@ const skills = [
     skills: [
       {
         name: 'Node.js',
-        icon: 'fab fa-node-js'
+        icon: 'bi bi-hexagon-fill'
       },
       {
         name: 'JavaScript',
-        icon: 'fab fa-js-square'
+        icon: 'bi bi-javascript'
       },
       {
         name: 'React.js',
-        icon: 'fab fa-react'
-      },
-      {
-        name: 'Tasker',
-        icon: 'fas fa-cog'
+        icon: 'bi bi-filetype-jsx'
       },
       {
         name: 'MongoDB',
-        icon: 'fas fa-server'
+        icon: 'bi bi-leaf-fill'
       },
       {
         name: 'SQL',
-        icon: 'fas fa-database'
+        icon: 'bi bi-database-fill'
       },
       {
         name: 'HTML',
-        icon: 'fab fa-html5'
+        icon: 'bi bi-code-slash'
       },
       {
         name: 'CSS',
-        icon: 'fab fa-css3-alt'
+        icon: 'bi bi-braces'
       },
       {
         name: 'Bootstrap',
-        icon: 'fab fa-bootstrap'
+        icon: 'bi bi-bootstrap-fill'
       },
       {
         name: 'Git',
-        icon: 'fas fa-code-branch'
+        icon: 'bi bi-git'
+      },
+      {
+        name: 'Tasker',
+        icon: 'bi bi-gear-wide-connected'
       }
     ]
   },
@@ -49,20 +49,22 @@ const skills = [
     skills: [
       {
         name: 'Resiliencia',
-        icon: 'fas fa-dumbbell'
+        icon: 'bi bi-graph-up-arrow'
       },
       {
         name: 'Adaptabilidad',
-        icon: 'fas fa-sync-alt'
+        icon: 'bi bi-puzzle-fill'
       },
       {
         name: 'Autoaprendizaje',
-        icon: 'fas fa-book-reader'
+        icon: 'bi bi-book-half'
       },
       {
         name: 'Trabajo en equipo',
-        icon: 'fas fa-hands-helping'
+        icon: 'bi bi-tools'
       }
     ]
   }
 ];
+
+export default skills;

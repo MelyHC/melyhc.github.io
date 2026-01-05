@@ -1,24 +1,48 @@
 ---
 interface Props {
+	code: string;
+	demo: string;
+	description: string;
+	img: string;
+	tags: [
+		{
+			icon: string,
+			label: string
+		}
+	];
 	title: string;
-	body: string;
-	href: string;
 }
 
-const { href, title, body } = Astro.props;
+const { code, demo, description, img, tags, title } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<div class="col-12 col-md-6 col-lg-4 mb-4">
+	<div class="card mb-3 h-100 border-0">
+		<img src={img} class="card-img-top" alt={title} />
+		<div class="card-body">
+			<span class="card-title">{title}</span>
+			<p class="card-text my-1 font-weight-light text-justify">
+				{
+					tags.map(
+						({ icon, label }) => `
+                <span class="badge badge-light font-weight-light">
+                  <i class="${icon}"></i>
+                  ${label}
+                </span>`,
+					)
+				}
+			</p>
+			<p class="card-text text-justify">{description}</p>
+			<a href={demo} target="_blank" class="btn btn-purple text-white m-1">
+				<i class="fas fa-eye text-white mr-2"></i>Demo</a
+			>
+			<a href={code} target="_target" class="btn btn-purple text-white m-1">
+				<i class="fab fa-github text-white mr-2"></i>Código</a
+			>
+		</div>
+	</div>
+</div>
+
 <style>
 	.link-card {
 		list-style: none;

@@ -8,8 +8,11 @@
 // const { href, title, body } = Astro.props;
 ---
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2 w-100" role="navigation">
-  <!-- <div class="fixed-bottom "> -->
+<nav
+  class="navbar navbar-expand-sm navbar-dark bg-dark p-2 w-100"
+  role="navigation"
+>
+  <div class="container-fluid">
     <a class="navbar-brand" href="#home"></a>
     <button
       class="navbar-toggler"
@@ -31,12 +34,17 @@
         <a class="nav-item nav-link scroll-link" href="#skills">Habilidades</a>
         <a class="nav-item nav-link scroll-link" href="#contact">Contacto</a>
       </div>
-    <!-- </div> -->
+    </div>
   </div>
 </nav>
 
 <style>
   .navbar {
     position: fixed;
+    z-index: 99;
   }
 </style>
+<!-- 
+<script is:inline type="module" src="">
+
+</script> -->
