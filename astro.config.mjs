@@ -1,9 +1,11 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+// import bootstrap from '@types/bootstrap';
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    ssr: {
+      noExternal: ['@types/bootstrap'],
+    }
   }
 });
