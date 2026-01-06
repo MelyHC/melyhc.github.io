@@ -20,7 +20,7 @@ const contact = [
     href: 'mailto:mely.hidalgo.crespo@gmail.com',
     icon: 'bi bi-envelope-fill',
     description: 'mely.hidalgo.crespo@gmail.com',
-    classDes: 'mail pt-1'
+    classDes: 'mail'
   },
   {
     href: 'https://github.com/MelyHC',
