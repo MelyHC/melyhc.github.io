@@ -7,5 +7,7 @@ export default defineConfig({
     ssr: {
       noExternal: ['@types/bootstrap'],
     }
-  }
+  },
+  site: 'https://melyhc.github.io',
+  base: '/',
 });
