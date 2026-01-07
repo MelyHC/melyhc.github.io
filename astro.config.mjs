@@ -22,5 +22,13 @@ export default defineConfig({
         ],
       },
     },
+    loaderOptions: {
+      sass: {
+        prependData: '@import "~@/styles/common";',
+        sassOptions: {
+          quietDeps: true
+        }
+      }
+    }
   },
 });
