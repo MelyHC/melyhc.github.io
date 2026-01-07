@@ -24,4 +24,12 @@ export default defineConfig(
       "no-console": "error",
     },
   },
+  {
+    rules: {
+      "prefer-destructuring": ["error", {
+        "array": true,
+        "object": true
+      }]
+    }
+  }
 );

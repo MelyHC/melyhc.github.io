@@ -34,7 +34,7 @@ import contactList from "../data/contact";
 			document.addEventListener("click", (e) => {
 				const container = document.querySelector("#navbar-hide");
 
-				const { classList } = e.target;
+				const { classList } = e.target as HTMLElement;
 				const arrClassListValues = Object.values(classList);
 
 				const validatedClass = ["nav-item", "nav-link", "scroll-link"];
