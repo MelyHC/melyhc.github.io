@@ -20,13 +20,18 @@ export default defineConfig({
           "global-builtin",
           "import",
         ],
+        quietDeps: true,
+        outputStyle: "expanded",
+        includePaths: ["node_modules"]
       },
     },
     loaderOptions: {
       sass: {
-        prependData: '@import "~@/styles/common";',
+        prependData: "@import '~@/styles/common';",
         sassOptions: {
-          quietDeps: true
+          quietDeps: true,
+          outputStyle: "expanded",
+          includePaths: ["node_modules"]
         }
       }
     }

@@ -1,9 +1,9 @@
 ---
-import "./Domine/static/Domine-Bold.ttf";
-import "./Domine/static/Domine-Medium.ttf";
-import "./Domine/static/Domine-Regular.ttf";
-import "./Domine/static/Domine-SemiBold.ttf";
-import "./Domine/Domine-VariableFont_wght.ttf";
+import "../styles/Domine/static/Domine-Bold.ttf";
+import "../styles/Domine/static/Domine-Medium.ttf";
+import "../styles/Domine/static/Domine-Regular.ttf";
+import "../styles/Domine/static/Domine-SemiBold.ttf";
+import "../styles/Domine/Domine-VariableFont_wght.ttf";
 
 import "../styles/bootstrap.scss";
 import "../styles/index.css";
@@ -23,6 +23,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
+		<!-- <link href="../../public/styles/bootstrap.css" rel="stylesheet"> -->
 	</head>
 	<body>
 		<slot />

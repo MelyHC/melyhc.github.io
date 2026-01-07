@@ -4,8 +4,8 @@
   "version": "1.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build && sass --verbose src/styles/ dist/styles.css",
+    "start": "astro dev && sass --silence-deprecation=import",
+    "build": "astro check && astro build && sass --verbose src/styles/ public/styles/",
     "preview": "astro preview",
     "astro": "astro"
   },
