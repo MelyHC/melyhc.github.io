@@ -1,8 +1,8 @@
 // @ts-check
 
 // import eslint from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import tseslint from 'typescript-eslint';
+import { defineConfig } from "eslint/config";
+import tseslint from "typescript-eslint";
 
 export default defineConfig(
   tseslint.configs.strict,
@@ -26,10 +26,13 @@ export default defineConfig(
   },
   {
     rules: {
-      "prefer-destructuring": ["error", {
-        "array": true,
-        "object": true
-      }]
-    }
-  }
+      "prefer-destructuring": [
+        "error",
+        {
+          array: true,
+          object: true,
+        },
+      ],
+    },
+  },
 );
