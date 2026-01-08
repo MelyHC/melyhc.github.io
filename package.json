@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev && sass --silence-deprecation=import",
-    "build": "astro check && astro build && sass --verbose src/styles/ public/styles/",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
