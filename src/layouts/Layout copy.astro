@@ -1,0 +1,31 @@
+---
+import "../styles/Domine/static/Domine-Bold.ttf";
+import "../styles/Domine/static/Domine-Medium.ttf";
+import "../styles/Domine/static/Domine-Regular.ttf";
+import "../styles/Domine/static/Domine-SemiBold.ttf";
+import "../styles/Domine/Domine-VariableFont_wght.ttf";
+
+// import "../styles/bootstrap.css";
+import "../styles/index.css";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Experiencia narrativa interactiva" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<!-- <link href="../../public/styles/bootstrap.css" rel="stylesheet"> -->
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

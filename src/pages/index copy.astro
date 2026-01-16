@@ -1,0 +1,577 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// import master from "../data/master";
+
+// Aquí podrías cargar tus archivos Markdown (Astro.glob)
+// Para este ejemplo, usamos una estructura de datos estática simulando frontmatter.
+---
+
+<Layout title="Experiencia Narrativa">
+	<canvas id="stage"></canvas>
+
+	<main id="ui-layer">
+		<div id="intro-overlay" class="center-content">
+			<p id="intro-text" class="fade-text">...</p>
+		</div>
+
+		<article id="content-panel" class="panel hidden">
+			<div class="panel-inner">
+				<h1 id="panel-title">Título</h1>
+				<div class="separator"></div>
+				<p id="panel-body">Contenido...</p>
+				<p id="panel-lock-msg" class="lock-msg hidden">
+					“No todo aquí busca ser entendido.<br />Algunas cosas solo necesitan
+					ser leídas.”
+				</p>
+			</div>
+			<button id="close-btn" class="close-btn">×</button>
+		</article>
+
+		<div id="controls-hint" class="hint hidden">
+			Arrastra para explorar • Click en una cara
+		</div>
+	</main>
+</Layout>
+
+<style>
+	/* --- Estilos UI --- */
+	#stage {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		outline: none;
+		display: block;
+	}
+
+	#ui-layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+		pointer-events: none; /* Dejar pasar clicks al canvas excepto en elementos interactivos */
+	}
+
+	.center-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+	}
+
+	/* Texto de Intro */
+	#intro-text {
+		font-family: var(--font-title);
+		font-size: 1.5rem;
+		color: var(--text-main);
+		letter-spacing: 0.1em;
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+	}
+
+	.fade-in {
+		opacity: 1 !important;
+	}
+
+	/* Panel de Contenido */
+	.panel {
+		position: absolute;
+		top: 50%;
+		right: 10%; /* Posicionado a la derecha para equilibrio */
+		transform: translateY(-50%);
+		width: 350px;
+		max-width: 80vw;
+		background: rgba(29, 29, 29, 0.85);
+		backdrop-filter: blur(10px);
+		border-left: 2px solid var(--accent-color);
+		padding: 2rem;
+		pointer-events: auto;
+		transition:
+			opacity 0.5s ease,
+			transform 0.5s ease;
+	}
+
+	.panel.hidden {
+		opacity: 0;
+		transform: translateY(-50%) translateX(20px);
+		pointer-events: none;
+	}
+
+	.panel h1 {
+		color: var(--accent-color);
+		margin-bottom: 0.5rem;
+	}
+
+	.separator {
+		width: 50px;
+		height: 2px;
+		background: var(--text-muted);
+		margin-bottom: 1.5rem;
+	}
+
+	.panel p {
+		line-height: 1.6;
+		color: var(--text-main);
+	}
+
+	.lock-msg {
+		margin-top: 1rem;
+		font-style: italic;
+		color: var(--text-muted);
+		font-size: 0.9rem;
+		border-top: 1px solid #333;
+		padding-top: 1rem;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	/* Botón cerrar */
+	.close-btn {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background: none;
+		border: none;
+		color: var(--text-muted);
+		font-size: 2rem;
+		cursor: pointer;
+		transition: color 0.3s;
+	}
+	.close-btn:hover {
+		color: var(--accent-color);
+	}
+
+	/* Hint */
+	.hint {
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
+		text-align: center;
+		color: var(--text-muted);
+		font-size: 0.8rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		opacity: 0;
+		animation: fadeInHint 2s forwards 1s;
+	}
+
+	@keyframes fadeInHint {
+		to {
+			opacity: 0.7;
+		}
+	}
+</style>
+
+<script is:inline type="module" src="">
+	import * as THREE from "three";
+
+	// --- Configuración y Estado ---
+	const CONFIG = {
+		introPhrases: [
+			"Iniciando observación",
+			"Explorando dimensiones",
+			"Conectando fragmentos",
+			"La identidad no es fija",
+			"Puedes explorar",
+		],
+		colorBg: 0x1d1d1d,
+		colorMesh: 0x333333,
+		colorAccent: 0xb760e6,
+		colorHighlight: 0x555555,
+	};
+
+	const STATE = {
+		isIntro: true,
+		visitedSections: new Set(),
+		isLockedOpen: false,
+		targetRotation: null,
+		isDragging: false,
+	};
+
+	// Datos de secciones (Mismo ID que en el frontmatter simulado)
+	const SECTION_IDS = [
+		"inicio",
+		"identidad",
+		"pensamiento",
+		"proyectos",
+		"ideas",
+		"fragmentos",
+	];
+
+	// --- Referencias DOM ---
+	const canvas = document.querySelector("#stage");
+	const introText = document.querySelector("#intro-text");
+	const introOverlay = document.querySelector("#intro-overlay");
+	const contentPanel = document.querySelector("#content-panel");
+	const panelTitle = document.querySelector("#panel-title");
+	const panelBody = document.querySelector("#panel-body");
+	const panelLockMsg = document.querySelector("#panel-lock-msg");
+	const controlsHint = document.querySelector("#controls-hint");
+	const closeBtn = document.querySelector("#close-btn");
+
+	// --- Three.js Setup ---
+	const scene = new THREE.Scene();
+	scene.background = new THREE.Color(CONFIG.colorBg);
+	scene.fog = new THREE.FogExp2(CONFIG.colorBg, 0.03);
+
+	const camera = new THREE.PerspectiveCamera(
+		45,
+		window.innerWidth / window.innerHeight,
+		0.1,
+		100,
+	);
+	camera.position.z = 15; // Lejos inicialmente para la intro
+
+	const renderer = new THREE.WebGLRenderer({
+		canvas,
+		antialias: true,
+		alpha: false,
+	});
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+	// Luces
+	const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+	scene.add(ambientLight);
+
+	const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+	dirLight.position.set(5, 5, 5);
+	scene.add(dirLight);
+
+	const accentLight = new THREE.PointLight(CONFIG.colorAccent, 0.8, 20);
+	accentLight.position.set(-5, -2, 2);
+	scene.add(accentLight);
+
+	// Objeto: Dodecaedro
+	// Geometría base para el Dodecaedro
+	const geometry = new THREE.DodecahedronGeometry(2.5, 0);
+
+	// Material base (Mate)
+	const materialBase = new THREE.MeshStandardMaterial({
+		color: CONFIG.colorMesh,
+		roughness: 0.7,
+		metalness: 0.1,
+		flatShading: true,
+	});
+
+	// Creamos un material para cada cara para poder iluminarlas individualmente al hover/click
+	// Un dodecaedro tiene 12 caras.
+	const materials = [];
+	for (let i = 0; i < 12; i++) {
+		materials.push(materialBase.clone());
+	}
+
+	const dodecahedron = new THREE.Mesh(geometry, materials);
+	scene.add(dodecahedron);
+
+	// --- Raycaster (Interacción) ---
+	const raycaster = new THREE.Raycaster();
+	const mouse = new THREE.Vector2();
+	let intersectedFaceIndex = -1;
+
+	// --- Intro Narrative ---
+	async function runIntro() {
+		let phraseIndex = 0;
+
+		const showNextPhrase = () => {
+			if (phraseIndex >= CONFIG.introPhrases.length) {
+				finishIntro();
+				return;
+			}
+
+			// Actualizar texto
+			if (introText) {
+				introText.textContent = CONFIG.introPhrases[phraseIndex];
+				introText.classList.add("fade-in");
+
+				setTimeout(() => {
+					if (phraseIndex < CONFIG.introPhrases.length - 1) {
+						introText.classList.remove("fade-in");
+					}
+					phraseIndex++;
+					setTimeout(showNextPhrase, 1000); // Espera antes del siguiente
+				}, 2000); // Duración en pantalla
+			}
+		};
+
+		showNextPhrase();
+	}
+
+	function finishIntro() {
+		STATE.isIntro = false;
+
+		// Animación cámara acercándose (simple lerp target en render loop o manual)
+		const targetZ = 8;
+		const startZ = camera.position.z;
+		const startTime = Date.now();
+		const duration = 2000;
+
+		function animateCamera() {
+			const now = Date.now();
+			const progress = Math.min((now - startTime) / duration, 1);
+			// Easing easeOutCubic
+			const ease = 1 - Math.pow(1 - progress, 3);
+
+			camera.position.z = startZ + (targetZ - startZ) * ease;
+
+			if (progress < 1) {
+				requestAnimationFrame(animateCamera);
+			} else {
+				// Intro terminada
+				if (introOverlay) introOverlay.style.display = "none";
+				if (controlsHint) controlsHint.classList.remove("hidden");
+			}
+		}
+		animateCamera();
+	}
+
+	// --- Interacción Mouse/Touch ---
+	let isMouseDown = false;
+	let mouseX = 0;
+	let mouseY = 0;
+	let targetRotationX = 0;
+	let targetRotationY = 0;
+
+	// Rotación "Física"
+	const windowHalfX = window.innerWidth / 2;
+	const windowHalfY = window.innerHeight / 2;
+
+	document.addEventListener("mousedown", onDocumentMouseDown);
+	document.addEventListener("touchstart", onDocumentTouchStart, {
+		passive: false,
+	});
+	document.addEventListener("mousemove", onDocumentMouseMove);
+	document.addEventListener("touchmove", onDocumentTouchMove, {
+		passive: false,
+	});
+	document.addEventListener("mouseup", onDocumentMouseUp);
+	document.addEventListener("touchend", onDocumentMouseUp);
+
+	// Click en interfaz cerrar
+	closeBtn?.addEventListener("click", () => {
+		contentPanel?.classList.add("hidden");
+		// Resetear color de selección
+		materials.forEach((m) => m.emissive.setHex(0x000000));
+	});
+
+	function onDocumentMouseDown(event) {
+		if (event.target.closest("#content-panel")) return; // Ignorar si click en panel
+		isMouseDown = true;
+		STATE.isDragging = false;
+		mouseX = event.clientX - windowHalfX;
+		mouseY = event.clientY - windowHalfY;
+	}
+
+	function onDocumentTouchStart(event) {
+		if (event.target.closest("#content-panel")) return;
+		if (event.touches.length === 1) {
+			isMouseDown = true;
+			STATE.isDragging = false;
+			mouseX = event.touches[0].pageX - windowHalfX;
+			mouseY = event.touches[0].pageY - windowHalfY;
+		}
+	}
+
+	function onDocumentMouseMove(event) {
+		if (!isMouseDown) {
+			// Lógica hover solo si no estamos arrastrando
+			updateRaycaster(event.clientX, event.clientY);
+			return;
+		}
+		STATE.isDragging = true;
+		const deltaX = event.clientX - windowHalfX;
+		const deltaY = event.clientY - windowHalfY;
+
+		targetRotationY += (deltaX - mouseX) * 0.005;
+		targetRotationX += (deltaY - mouseY) * 0.005;
+
+		mouseX = deltaX;
+		mouseY = deltaY;
+	}
+
+	function onDocumentTouchMove(event) {
+		if (isMouseDown && event.touches.length === 1) {
+			STATE.isDragging = true;
+			event.preventDefault();
+			const deltaX = event.touches[0].pageX - windowHalfX;
+			const deltaY = event.touches[0].pageY - windowHalfY;
+
+			targetRotationY += (deltaX - mouseX) * 0.005;
+			targetRotationX += (deltaY - mouseY) * 0.005;
+
+			mouseX = deltaX;
+			mouseY = deltaY;
+		}
+	}
+
+	function onDocumentMouseUp(event) {
+		isMouseDown = false;
+		if (!STATE.isDragging && !STATE.isIntro) {
+			// Fue un click/tap
+			handleClick();
+		}
+	}
+
+	function updateRaycaster(x, y) {
+		mouse.x = (x / window.innerWidth) * 2 - 1;
+		mouse.y = -(y / window.innerHeight) * 2 + 1;
+		raycaster.setFromCamera(mouse, camera);
+
+		const intersects = raycaster.intersectObject(dodecahedron);
+
+		// Resetear emisivos
+		materials.forEach((m, idx) => {
+			// Mantener iluminado si el panel está abierto para esa sección, si no apagar
+			// (Simplificación: Apagar todos al hover, iluminar el actual)
+			if (m.emissive.getHex() !== CONFIG.colorAccent) {
+				m.emissive.setHex(0x000000);
+			}
+		});
+
+		if (intersects.length > 0) {
+			const faceIndex = intersects[0].face.materialIndex;
+			intersectedFaceIndex = faceIndex;
+
+			// Highlight suave al hover
+			if (materials[faceIndex].emissive.getHex() !== CONFIG.colorAccent) {
+				materials[faceIndex].emissive.setHex(0x222222);
+			}
+			document.body.style.cursor = "pointer";
+		} else {
+			intersectedFaceIndex = -1;
+			document.body.style.cursor = "default";
+		}
+	}
+
+	function handleClick() {
+		if (intersectedFaceIndex !== -1) {
+			// Mapear caras a secciones. Solo usamos las primeras 6 caras.
+			// Si el índice es mayor a 5, es una cara "vacía".
+			const sectionIndex = intersectedFaceIndex % SECTION_IDS.length;
+			const sectionId = SECTION_IDS[sectionIndex];
+
+			openSection(sectionId, intersectedFaceIndex);
+		}
+	}
+
+	function openSection(id, matIndex) {
+		// Encontrar datos
+		const allData = JSON.parse(
+			document.querySelector('astro-island, script[type="application/json"]')
+				? "{}"
+				: JSON.stringify([
+						// DATA_DUMP (Esto es un truco para acceder a los datos definidos arriba en JS)
+						{
+							id: "inicio",
+							title: "Inicio",
+							content:
+								"El punto de partida. Una forma suspendida en el vacío esperando dirección.",
+						},
+						{
+							id: "identidad",
+							title: "Identidad",
+							content:
+								"No somos estáticos. Somos un flujo constante de versiones pasadas y futuras.",
+						},
+						{
+							id: "pensamiento",
+							title: "Pensamiento",
+							content:
+								"Estructuras lógicas intentando dar sentido al caos de la experiencia.",
+						},
+						{
+							id: "proyectos",
+							title: "Proyectos",
+							content:
+								"Manifestaciones tangibles de ideas abstractas. El código como arcilla.",
+						},
+						{
+							id: "ideas",
+							title: "Ideas paso a paso",
+							content:
+								"Desglose de procesos. Aprender no es lineal, es una espiral.",
+						},
+						{
+							id: "fragmentos",
+							title: "Fragmentos",
+							content: "Memorias y sensaciones.",
+							locked: true,
+						},
+					]),
+		);
+
+		const data = allData.find((s) => s.id === id);
+		if (!data) return;
+
+		// Lógica Fragmentos
+		const isLocked = data.locked && STATE.visitedSections.size < 3;
+
+		// Actualizar UI
+		panelTitle.textContent = data.title;
+
+		if (isLocked) {
+			panelBody.textContent = "";
+			panelLockMsg.classList.remove("hidden");
+			panelTitle.style.color = "#555"; // Gris desactivado
+		} else {
+			panelBody.textContent = data.content;
+			panelLockMsg.classList.add("hidden");
+			panelTitle.style.color = "var(--accent-color)";
+
+			// Registrar visita
+			if (id !== "fragmentos") {
+				STATE.visitedSections.add(id);
+			} else {
+				// Desbloqueo especial visual
+				materials[matIndex].color.setHex(CONFIG.colorAccent);
+			}
+		}
+
+		contentPanel.classList.remove("hidden");
+
+		// Iluminar cara seleccionada
+		materials.forEach((m) => m.emissive.setHex(0x000000));
+		materials[matIndex].emissive.setHex(CONFIG.colorAccent);
+
+		// Rotar objeto para encarar la cámara (Opcional, avanzado: requiere cuaterniones)
+		// Para esta base, la selección es suficiente feedback.
+	}
+
+	// --- Loop Principal ---
+	function animate() {
+		requestAnimationFrame(animate);
+
+		if (STATE.isIntro) {
+			// Rotación automática lenta
+			dodecahedron.rotation.y += 0.002;
+			dodecahedron.rotation.x += 0.001;
+		} else {
+			// Rotación controlada por inercia
+			dodecahedron.rotation.y +=
+				(targetRotationY - dodecahedron.rotation.y) * 0.05;
+			dodecahedron.rotation.x +=
+				(targetRotationX - dodecahedron.rotation.x) * 0.05;
+		}
+
+		renderer.render(scene, camera);
+	}
+
+	// Init
+	runIntro();
+	animate();
+
+	// Resize handler
+	window.addEventListener("resize", () => {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	});
+</script>
