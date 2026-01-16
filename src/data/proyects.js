@@ -6,18 +6,9 @@ const proyects = [
     demo: 'https://melyhc.github.io/lim-2018-05-bc-core-pm-datadashboard/src/',
     code: 'https://github.com/MelyHC/lim-2018-05-bc-core-pm-datadashboard',
     tags: [
-      {
-        label: 'HTML',
-        icon: 'bi bi-code-slash'
-      },
-      {
-        label: 'CSS',
-        icon: 'bi bi-braces'
-      },
-      {
-        label: 'JavaScript',
-        icon: 'bi bi-javascript'
-      }
+      'html',
+      'css',
+      'javascript',
     ]
   },
   {
@@ -27,10 +18,7 @@ const proyects = [
     demo: 'https://www.npmjs.com/package/melyhc-md-links',
     code: 'https://github.com/MelyHC/lim20181-Track-FE-markdown-list',
     tags: [
-      {
-        label: 'JavaScript',
-        icon: 'bi bi-javascript'
-      }
+      'javascript',
     ]
   },
   {
@@ -40,26 +28,11 @@ const proyects = [
     demo: 'https://melyhc.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/',
     code: 'https://github.com/MelyHC/lim-2018-05-bc-core-pm-socialnetwork',
     tags: [
-      {
-        label: 'HTML',
-        icon: 'bi bi-code-slash'
-      },
-      {
-        label: 'CSS',
-        icon: 'bi bi-braces'
-      },
-      {
-        label: 'Bootstrap',
-        icon: 'bi bi-bootstrap-fill'
-      },
-      {
-        label: 'JS',
-        icon: 'bi bi-javascript'
-      },
-      {
-        label: 'Firebase',
-        icon: 'bi bi-hdd-stack-fill'
-      }
+      'html',
+      'css',
+      'bootstrap',
+      'javascript',
+      'firebase'
     ]
   }
 ];
