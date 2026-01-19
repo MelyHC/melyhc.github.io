@@ -1,46 +1,24 @@
 ---
-interface Props {
-  contactList: Array<object>;
-}
-
-const { contactList } = Astro.props;
+import contactList from "../data/contact";
 ---
 
 <section id="contact" class="bg-color text-center text-white pt-5">
   <h2 class="mt-1 text-domine">Contáctame</h2>
   <hr class="mt-0 mb-0 title-line" />
-  <div id="contact-container"></div>
-</section>
-
-<script is:inline define:vars={{ contactList: JSON.stringify(contactList) }}>
-  const printInfoContact = (arrInfoContact) => {
-    let templateInfoContact = "";
-
-    // href: '',
-    // target: '',
-    // icon: '',
-    // description: ''
-
-    templateInfoContact += `<div class="container mt-2 d-flex flex-column align-items-center">
-      <div class="pb-5">`;
-
-    arrInfoContact.forEach(({ classDes, description, href, icon, target }) => {
-      templateInfoContact += `
-      <div class="p-2">
-        <a class="media d-flex align-items-center" href="${href}" ${target}>
-          <i class="${icon} me-2 ms-3 icon-md"></i>
-            <span class="${classDes}">${description}</span>
-        </a>
-      </div>`;
-    });
-
-    templateInfoContact += `
+  <div id="contact-container">
+    <div class="container mt-2 d-flex flex-column align-items-center">
+      <div class="pb-5">
+        {
+          contactList.map(({ classDes, description, href, icon, target }) => (
+            <div class="p-2">
+              <a class="media d-flex align-items-center" href={href} {target}>
+                <i class={`${icon} me-2 ms-3 icon-md`} />
+                <span class={classDes}>{description}</span>
+              </a>
+            </div>
+          ))
+        }
       </div>
-    </div>`;
-
-    return templateInfoContact;
-  };
-
-  const contContact = document.querySelector("#contact-container");
-  contContact.innerHTML = printInfoContact(JSON.parse(contactList));
-</script>
+    </div>
+  </div>
+</section>
