@@ -7,70 +7,25 @@ import AboutMe from "../components/AboutMe.astro";
 import Proyects from "../components/Proyects.astro";
 import Skills from "../components/Skills.astro";
 import Contact from "../components/Contact.astro";
-
-import proyectsList from "../data/proyects";
-import skillsList from "../data/skills";
-import contactList from "../data/contact";
-import icons from "../data/icons";
-
-const addedIcons = (icons, currentList, name) => {
-	const mapList = currentList.map((currObj: Object) => {
-		currObj[name].forEach((currIcon: String, i: Number) => {
-			// console.log(currentList,  i, name);
-			const icon = icons.find(({ id }) => id === currIcon);
-			// console.log(icon, currIcon);
-
-			currObj[name][i] = icon;
-		});
-		// console.log(currObj[name]);
-		return currObj;
-	});
-	// console.log(mapList)
-
-	return mapList;
-};
-
-// console.log(proyectsList, 123);
-
-const mapedProyects = addedIcons(icons, proyectsList, "tags");
-const mapedSkills = addedIcons(icons, skillsList, "skills");
-
-// console.log( mapedSkills);
 ---
 
 <Layout title="Mely Hidalgo Crespo">
 	<main>
 		<Navbar />
 		<div
-			class=""
+			id="main-content"
 			data-bs-spy="scroll"
 			data-bs-target=".navbar"
-			data-bs-offset="58"
-			tabindex="58"
+			data-bs-offset="0"
+			tabindex="0"
 		>
 			<Home />
 			<AboutMe />
-			<Proyects proyectsList={mapedProyects} />
-			<Skills skillsList={mapedSkills} />
-			<Contact contactList={contactList} />
+			<Proyects />
+			<Skills />
+			<Contact />
 		</div>
 
-		<script>
-			document.addEventListener("click", (e) => {
-				const container = document.querySelector("#navbar-hide");
-
-				const { classList } = e.target as HTMLElement;
-				const arrClassListValues = Object.values(classList);
-
-				const validatedClass = ["nav-item", "nav-link", "scroll-link"];
-
-				const elValidated = arrClassListValues.find((e) =>
-					validatedClass.includes(e),
-				);
-
-				if (elValidated || container.classList.contains("show"))
-					container.classList.remove("show");
-			});
-		</script>
+		<script src="../utils/handleScroll.js"></script>
 	</main></Layout
 >
