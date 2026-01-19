@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@popperjs/core": "^2.11.8",
-    "astro": "^5.16.6",
+    "astro": "^5.16.11",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "jquery": "^3.7.1",
