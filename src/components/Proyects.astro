@@ -42,10 +42,10 @@ const { proyectsList } = Astro.props;
               <span class="card-title">${title}</span>
               <p class="card-text my-1 fw-light text-justify">
               ${tags.map(
-                ({ icon, label }) => `
+                ({ icon, label, short_label }) => `
                   <span class="badge rounded-pill badge-light fw-light">
                     <i class="${icon}"></i>
-                    ${label}
+                    ${short_label ? short_label : label}
                   </span>`,
               )}
               </p>

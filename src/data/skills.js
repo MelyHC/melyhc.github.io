@@ -2,25 +2,25 @@ const skills = [
   {
     type: 'Tech',
     skills: [
-      'NodeJs',
-      'JavaScript',
-      'ReactJs',
-      'MongoDB',
-      'SQL',
-      'HTML',
-      'CSS',
-      'Bootstrap',
-      'Git',
-      'Tasker',
+      'nodejs',
+      'javascript',
+      'reactjs',
+      'mongodb',
+      'sql',
+      'html',
+      'css',
+      'bootstrap',
+      'git',
+      'tasker',
     ]
   },
   {
-    type: 'Blandas',
+    type: 'Soft',
     skills: [
-      'Resiliencia',
-      'Adaptabilidad',
-      'Autoaprendizaje',
-      'TrabajoEn Equipo',
+      'resiliencia',
+      'adaptabilidad',
+      'autoaprendizaje',
+      'trabajoenequipo',
     ]
   }
 ];

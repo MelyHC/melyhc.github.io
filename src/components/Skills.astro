@@ -30,11 +30,11 @@ const { skillsList } = Astro.props;
           <h3 class="text-domine">${type}</h3>
           <div class="row justify-content-center align-items-center">
           ${skills.map(
-            ({ icon, name }) =>
+            ({ icon, label }) =>
               `<div class="col col-md-3 p-0">
               <div class="px-2 m-4 m-md-3 pad-border d-flex flex-column justify-content-center align-items-center">
                 <i class="${icon} icon-lg"></i>
-                <span class="font-weight-bold">${name}</span>
+                <span class="font-weight-bold">${label}</span>
               </div>
             </div>`,
           )}

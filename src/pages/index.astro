@@ -11,6 +11,31 @@ import Contact from "../components/Contact.astro";
 import proyectsList from "../data/proyects";
 import skillsList from "../data/skills";
 import contactList from "../data/contact";
+import icons from "../data/icons";
+
+const addedIcons = (icons, currentList, name) => {
+	const mapList = currentList.map((currObj: Object) => {
+		currObj[name].forEach((currIcon: String, i: Number) => {
+			// console.log(currentList,  i, name);
+			const icon = icons.find(({ id }) => id === currIcon);
+			// console.log(icon, currIcon);
+
+			currObj[name][i] = icon;
+		});
+		// console.log(currObj[name]);
+		return currObj;
+	});
+	// console.log(mapList)
+
+	return mapList;
+};
+
+// console.log(proyectsList, 123);
+
+const mapedProyects = addedIcons(icons, proyectsList, "tags");
+const mapedSkills = addedIcons(icons, skillsList, "skills");
+
+// console.log( mapedSkills);
 ---
 
 <Layout title="Mely Hidalgo Crespo">
@@ -25,8 +50,8 @@ import contactList from "../data/contact";
 		>
 			<Home />
 			<AboutMe />
-			<Proyects proyectsList={proyectsList} />
-			<Skills skillsList={skillsList} />
+			<Proyects proyectsList={mapedProyects} />
+			<Skills skillsList={mapedSkills} />
 			<Contact contactList={contactList} />
 		</div>
 
