@@ -1,27 +1,60 @@
 <section
-  id="home"
-  class="home d-flex text-center align-items-center flex-column justify-content-center text-white"
+  id="inicio"
+  class="container home d-flex align-items-center flex-column justify-content-center"
 >
-  <h1 class="text-domine title">Mely Hidalgo</h1>
-  <span>Front-end Developer</span>
+  <div class="d-flex align-items-center justify-content-center">
+    <img
+      src="src/img/mely.webp"
+      class="img-hero rounded-circle me-3"
+      alt="Mely Hidalgo Crespo"
+    />
+    <div>
+      <h1 class="text-domine title">
+        Hola, soy Mely 👋
+        <br />
+        <span>
+          <strong>Frontend Developer</strong> enfocada en crear productos digitales
+          claros, funcionales y centradas en las personas.
+        </span>
+      </h1>
+      <p class="sub-title">
+        Desarrollo interfaces modernas con React y JavaScript, cuidando tanto el
+        diseño como la experiencia de usuario.
+      </p>
+    </div>
+  </div>
+  <div>
+    <a class="btn btn-purple-primary m-1">Ver proyectos</a>
+    <a class="btn btn-purple-secondary m-1">Contáctame</a>
+  </div>
+
+  <style>
+    .home {
+      height: 100vh;
+    }
+    .title {
+      font-size: 1.8rem;
+      line-height: 1.15;
+      max-width: 640px;
+    }
+
+    .sub-title {
+      max-width: 640px;
+      margin-top: 1.5rem;
+    }
+
+    .img-hero {
+      /* min-width: 100px; */
+      max-height: 100px;
+      background-size: cover;
+      border-radius: 100%;
+    }
+
+    span {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-family: "Open Sans", system-ui, sans-serif;
+      font-weight: 500;
+    }
+  </style>
 </section>
-
-<style>
-  .home {
-    background-attachment: fixed;
-    height: 100vh;
-    background-image: url("../img/fondo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: inset 0px 0px 100px 900px rgba(0, 0, 0, 0.7);
-    background-position: center;
-  }
-
-  .home span {
-    font-size: 1.4em;
-  }
-
-  .title {
-    font-size: 3.5em;
-  }
-</style>
