@@ -7,8 +7,8 @@ import addedIcons from "../utils/addedIcons";
 const mapedProyects = addedIcons(icons, proyectsList, "tags");
 ---
 
-<section id="proyects" class="bg-color text-center pt-5">
-  <h2 class="text-white mt-4 text-domine">Mis proyectos</h2>
+<section id="proyectos" class="text-center pt-5">
+  <h2 class="mt-4 text-domine">Mis proyectos</h2>
   <hr class="mt-0 mb-0 title-line" />
   <div class="container" id="proyects-container">
     <div class="row row-cols-1 row-cols-md-3 me-2 ms-2 mt-4 pb-5">
@@ -22,7 +22,7 @@ const mapedProyects = addedIcons(icons, proyectsList, "tags");
                   <span class="card-title">{title}</span>
                   <p class="card-text my-1 fw-light text-justify">
                     {tags.map(({ className, label, short_label }) => (
-                      <span class="badge rounded-pill badge-light fw-light m-1">
+                      <span class="badge rounded-pill badge-light fw-light m-1 text-black">
                         <i class={className} />
                         {short_label ? short_label : label}
                       </span>
@@ -32,17 +32,17 @@ const mapedProyects = addedIcons(icons, proyectsList, "tags");
                   <a
                     href={demo}
                     target="_blank"
-                    class="btn btn-purple text-white m-1"
+                    class="btn btn-purple m-1"
                   >
-                    <i class="bi bi-eye-fill text-white me-2" />
+                    <i class="bi bi-eye-fill me-2" />
                     Demo
                   </a>
                   <a
                     href={code}
                     target="_target"
-                    class="btn btn-purple text-white m-1"
+                    class="btn btn-purple m-1"
                   >
-                    <i class="bi bi-github text-white me-2" />
+                    <i class="bi bi-github me-2" />
                     Código
                   </a>
                 </div>
